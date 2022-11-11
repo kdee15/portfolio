@@ -1,5 +1,4 @@
 import { createClient } from "contentful";
-import Footer from "../components/blocks/componentFooter/ComponentFooter";
 import ComponentHeroCarousel from "../components/blocks/componentHeroCarousel/ComponentHeroCarousel";
 import Nav from "../components/molecules/nav/Nav";
 const { C_SPACE_ID, C_DELIVERY_KEY } = require("../helpers/contentful-config");
@@ -28,13 +27,11 @@ export async function getStaticProps() {
 
 export default function Home({ Page }) {
   const heroBanner = Page[0].fields.components[0].fields;
-  const componentFooter = Page[0].fields.components[1].fields;
 
   return (
     <div className="anchor" id="top">
       <Nav />
       <ComponentHeroCarousel contentModule={heroBanner} />
-      <Footer contentModule={componentFooter} />
     </div>
   );
 }
