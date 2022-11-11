@@ -1,0 +1,57 @@
+// COMPONENT [ TEXT IMAGE BLOCK ] #####################################################################################
+
+@import "scss/.base/module-index";
+
+.oCard {
+  // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
+
+  padding: 50px 0 0;
+  position: relative;
+
+  .oCardImage {
+    aspect-ratio: 1/1;
+    position: relative;
+    background-position: center center;
+    background-size: cover;
+    margin-bottom: 40px;
+  }
+
+  .aTitle {
+    margin-bottom: 30px;
+    text-align: center;
+  }
+  .mText {
+    text-align: left;
+  }
+  // A. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
+
+  @media ($md-dn) {
+  }
+
+  // B. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
+
+  @media ($md-up) {
+  }
+
+  // C. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
+
+  @media ($md-up) {
+  }
+
+  // D. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // E. MIN-WIDTH: 1200px +++++++++++++++++++++++++++++++++
+
+  @media ($lg-up) {
+  }
+
+  // E. END +++++++++++++++++++++++++++++++++++++++++++++++
+}
+
+// END OF FILE ########################################################################################################

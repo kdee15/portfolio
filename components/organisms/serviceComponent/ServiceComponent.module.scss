@@ -1,0 +1,127 @@
+// COMPONENT [ TEXT IMAGE BLOCK ] #####################################################################################
+
+@import "scss/.base/module-index";
+
+.oServiceBlock {
+  // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
+
+  padding: 0;
+  position: relative;
+  margin-bottom: 130px;
+
+  .oBlockImage {
+    width: 100%;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .aBlockTitle {
+    width: 80%;
+    padding: 80px 30px 0;
+    margin: 0 auto -120px;
+    position: relative;
+    z-index: 1;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 50px;
+      left: 0;
+      right: 0;
+      bottom: -100px;
+      z-index: -1;
+      background-color: #3a2f1d;
+      background: linear-gradient(rgba(#3a2f1d, 0.8) 60%, rgba(#3a2f1d, 0));
+    }
+  }
+
+  .oBlockBody {
+    padding: 50px 30px;
+  }
+
+  // A. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
+
+  @media ($md-dn) {
+  }
+
+  // B. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
+
+  @media ($md-up) {
+    height: 100vh;
+    display: flex;
+
+    .oBlockImage {
+      align-self: center;
+      margin-bottom: 0;
+      height: 100%;
+      flex: 1 1 50%;
+    }
+
+    .aBlockTitle {
+      margin: 0 -10% 0 auto;
+      &:before {
+        background-color: #3a2f1d;
+      }
+    }
+
+    .oBlockBody {
+      flex: 1 1 50%;
+      padding-left: 12%;
+      padding-bottom: 50px;
+      align-self: center;
+    }
+
+    &.right {
+      .aBlockTitle {
+        margin: 0 auto 0 -10%;
+      }
+      .oBlockBody {
+        order: 1;
+        padding-left: 3%;
+        padding-right: 9%;
+      }
+      .oBlockImage {
+        order: 2;
+      }
+    }
+  }
+
+  // C. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
+
+  @media ($lg-up) {
+  }
+
+  // D. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // E. MIN-WIDTH: 1200px +++++++++++++++++++++++++++++++++
+
+  @media ($xl-up) {
+    .oBlockImage {
+      flex: 1 1 55%;
+    }
+
+    .oBlockBody {
+      flex: 1 1 45%;
+    }
+  }
+
+  // E. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // E. MIN-WIDTH: 1920px +++++++++++++++++++++++++++++++++
+
+  @media ($hd-up) {
+    .oBlockBody {
+      padding-right: 5%;
+    }
+  }
+
+  // E. END +++++++++++++++++++++++++++++++++++++++++++++++
+}
+
+// END OF FILE ########################################################################################################
