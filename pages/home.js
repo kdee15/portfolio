@@ -38,7 +38,6 @@ export default function Home({ Page }) {
   const componentAdele = Page[0].fields.components[3].fields;
   const componentTMS = Page[0].fields.components[4].fields;
   const componentLC = Page[0].fields.components[5].fields;
-  const componentTraining = Page[0].fields.components[6].fields;
   const componentReasons = Page[0].fields.components[7].fields;
   const componentOfferings = Page[0].fields.components[8].fields;
   const componentFooter = Page[0].fields.components[9].fields;
@@ -61,8 +60,6 @@ export default function Home({ Page }) {
       <ServiceComponent contentModule={componentTMS} />
       <div className="anchor" id="consulting"></div>
       <ServiceComponent contentModule={componentLC} />
-      <div className="anchor" id="training"></div>
-      <ServiceComponent contentModule={componentTraining} />
       <Footer contentModule={componentFooter} />
     </div>
   );
