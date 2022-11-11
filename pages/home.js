@@ -62,7 +62,6 @@ export default function Home({ Page }) {
       <div className="anchor" id="consulting"></div>
       <ServiceComponent contentModule={componentLC} />
       <div className="anchor" id="training"></div>
-      <ServiceComponent contentModule={componentTraining} />
       <Footer contentModule={componentFooter} />
     </div>
   );
