@@ -4,9 +4,9 @@ import classes from "./ComponentHeroBanner.module.scss";
 import Image from "next/image";
 import { useState, useEffect } from "react";
 
-function ComponentHeroBanner({ heroBanner }) {
+function ComponentHeroBanner({ contentModule }) {
   const [mobileView, setMobileView] = useState();
-  const { title, backgroundImage, backgroundImageMobile, logo } = heroBanner;
+  const { title, backgroundImage, backgroundImageMobile, logo } = contentModule;
 
   useEffect(() => {
     setMobileView(isMobile);
