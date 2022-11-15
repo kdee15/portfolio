@@ -4,14 +4,29 @@
 .oHeroBlock {
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
-  .mLogo {
-    width: 80%;
-    max-width: 400px;
-    margin: 10vh auto 15vh;
-  }
+  &.bannerHome,
+  &.bannerPage {
+    min-height: 100vh;
 
-  .introImage {
-    padding: 0 50px;
+    .introImage {
+      @include position(absolute, 0);
+      background-size: cover;
+      z-index: -1;
+    }
+
+    .oContentBlock {
+      display: flex;
+      align-items: center;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mLogo {
+      width: 80%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
   }
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
@@ -26,9 +41,6 @@
   // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
 
   @media ($md-up) {
-    .mLogo {
-      margin: 25vh auto 15vh;
-    }
   }
 
   // C. END +++++++++++++++++++++++++++++++++++++++++++++++
