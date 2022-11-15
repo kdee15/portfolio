@@ -28,10 +28,10 @@ function ComponentHeroBanner({ contentModule }) {
       <div className={`${classes.oContentBlock}`}>
         {homepageBanner ? (
           <figure className={classes.mLogo}>
-            {/* {logo && (
+            {logo && (
               <Image
                 className={`${classes.aImage} a-responsive-image`}
-                src={logo?.fields?.file?.url}
+                src={`http:${logo?.fields?.file?.url}`}
                 alt={`title`}
                 width={logo?.fields.file.details.image.width}
                 height={logo?.fields.file.details.image.height}
@@ -39,7 +39,7 @@ function ComponentHeroBanner({ contentModule }) {
                 layout="responsive"
                 priority="true"
               />
-            )} */}
+            )}
           </figure>
         ) : null}
         <h1>{title}</h1>

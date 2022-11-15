@@ -52,7 +52,7 @@ export default function Home({ projects }) {
       {projects.map((project) => (
         <div key={project.slug}>
           {project.title}
-          <Link href={`projects/${project.slug}`}>
+          <Link href={`/projects/${project.slug}`}>
             <a>{project.title}</a>
           </Link>
         </div>
