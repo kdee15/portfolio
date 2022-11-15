@@ -1,9 +1,15 @@
 import { createClient } from "contentful";
+import ComponentHeroBanner from "../../components/blocks/componentHeroBanner/ComponentHeroBanner";
+import ComponentProjectDetail from "../../components/blocks/componentProjectDetail/ComponentProjectDetail";
 import Nav from "../../components/molecules/nav/Nav";
 const {
-  C_SPACE_ID,
   C_DELIVERY_KEY,
+  C_GRAPHQL_URL,
 } = require("../../helpers/contentful-config");
+const {
+  PROJECT_CONTENT,
+  PROJECT_SLUG,
+} = require("../../helpers/data/projects");
 
 /**
  * Initial page load to access users browser information
@@ -13,12 +19,13 @@ const {
  */
 
 export default function Project({ project }) {
-  console.log("project", project);
+  const projectDetail = project.componentListCollection.items[1];
   return (
     <div className="anchor" id="top">
       <Nav />
+      {/* <ComponentHeroBanner contentModule={componentHeroBanner} /> */}
+      <ComponentProjectDetail contentModule={projectDetail} />
       <pre>{JSON.stringify(project, null, 2)}</pre>
-      {project.title}
     </div>
   );
 }
@@ -26,33 +33,19 @@ export default function Project({ project }) {
 export async function getStaticProps({ params }) {
   const { project } = params;
 
-  const result = await fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${C_SPACE_ID}/environments/master`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${C_DELIVERY_KEY}`,
-        "Content-Type": "application/json",
+  const result = await fetch(C_GRAPHQL_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${C_DELIVERY_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: PROJECT_CONTENT,
+      variables: {
+        slug: project,
       },
-      body: JSON.stringify({
-        query: `
-        query GetProject($slug: String!) {
-          projectPageCollection(where:{
-            slug: $slug
-          }, limit: 1) {
-              items {
-                title
-                  slug
-              }
-          }
-        }
-        `,
-        variables: {
-          slug: project,
-        },
-      }),
-    }
-  );
+    }),
+  });
 
   if (!result.ok) {
     console.error(result);
@@ -68,27 +61,16 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const result = await fetch(
-    `https://graphql.contentful.com/content/v1/spaces/${C_SPACE_ID}/environments/master`,
-    {
-      method: "POST",
-      headers: {
-        Authorization: `Bearer ${C_DELIVERY_KEY}`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        query: `
-            query {
-                projectPageCollection {
-                    items {
-                        slug
-                    }
-                }
-            }
-        `,
-      }),
-    }
-  );
+  const result = await fetch(C_GRAPHQL_URL, {
+    method: "POST",
+    headers: {
+      Authorization: `Bearer ${C_DELIVERY_KEY}`,
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      query: PROJECT_SLUG,
+    }),
+  });
 
   if (!result.ok) {
     return {};
