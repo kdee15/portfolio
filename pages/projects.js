@@ -45,7 +45,7 @@ export default function Home({ projects }) {
       {projects.map((project, index) => (
         <div key={index}>
           {project.title}
-          {/* <a href={`/projects/${project.slug}`}>{project.title}</a> */}
+          <a href={`/projects/${project.slug}`}>{project.title}</a>
         </div>
       ))}
     </div>
