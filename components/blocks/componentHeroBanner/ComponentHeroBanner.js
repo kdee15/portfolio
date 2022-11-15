@@ -6,7 +6,8 @@ import { useState, useEffect } from "react";
 
 function ComponentHeroBanner({ contentModule }) {
   const [mobileView, setMobileView] = useState();
-  const { title, backgroundImage, backgroundImageMobile, logo } = contentModule;
+  const { title, subtitle, backgroundImage, backgroundImageMobile, logo } =
+    contentModule;
 
   useEffect(() => {
     setMobileView(isMobile);
@@ -27,32 +28,25 @@ function ComponentHeroBanner({ contentModule }) {
             priority="true"
           />
         </figure>
+        <h1>{title}</h1>
+        <h4>{subtitle}</h4>
       </div>
-      <figure className={classes.introImage}>
-        {mobileView ? (
-          <Image
-            className={classes.oImageBlockMobile}
-            src={backgroundImageMobile.fields.file.url}
-            alt={`title`}
-            width={backgroundImageMobile.fields.file.details.image.width}
-            height={backgroundImageMobile.fields.file.details.image.height}
-            aria-hidden="true"
-            layout="responsive"
-            priority="true"
-          />
-        ) : (
-          <Image
-            className={classes.oImageBlock}
-            src={backgroundImage.fields.file.url}
-            alt={`title`}
-            width={backgroundImage.fields.file.details.image.width}
-            height={backgroundImage.fields.file.details.image.height}
-            aria-hidden="true"
-            layout="responsive"
-            priority="true"
-          />
-        )}
-      </figure>
+
+      {mobileView ? (
+        <figure
+          className={`${classes.introImage}`}
+          style={{
+            backgroundImage: `url(http:${backgroundImageMobile.fields.file.url})`,
+          }}
+        ></figure>
+      ) : (
+        <figure
+          className={`${classes.introImage}`}
+          style={{
+            backgroundImage: `url(http:${backgroundImage.fields.file.url})`,
+          }}
+        ></figure>
+      )}
     </section>
   );
 }
