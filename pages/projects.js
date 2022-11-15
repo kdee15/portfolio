@@ -45,7 +45,6 @@ export async function getStaticProps() {
 }
 
 export default function Home({ projects }) {
-  console.log("projects", projects);
   return (
     <div className="anchor" id="top">
       <Nav />
