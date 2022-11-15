@@ -62,10 +62,10 @@ function ComponentProjectDetail({ contentModule }) {
         </div>
       </div>
 
-      <main class="p-main page single projects">
-        <section class="o-block o-project-content">
+      <main className={classes.oProjects}>
+        <section className={classes.oProjectContent}>
           {mobileView ? (
-            <figure class="o-project-cover on">
+            <figure className={`o-project-cover on`}>
               <Image
                 className={`${classes.aImage} a-cover-mob a-responsive-image`}
                 src={coverImageMobile?.url}
@@ -78,7 +78,7 @@ function ComponentProjectDetail({ contentModule }) {
               />
             </figure>
           ) : (
-            <figure class="o-project-cover on">
+            <figure className={`o-project-cover on`}>
               <Image
                 className={`${classes.aImage} a-cover-desk a-responsive-image`}
                 src={coverImageDesk?.url}
