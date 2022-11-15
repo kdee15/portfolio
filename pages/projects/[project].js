@@ -1,7 +1,6 @@
-import { createClient } from "contentful";
-import ComponentHeroBanner from "../../components/blocks/componentHeroBanner/ComponentHeroBanner";
 import ComponentProjectDetail from "../../components/blocks/componentProjectDetail/ComponentProjectDetail";
-import Nav from "../../components/molecules/nav/Nav";
+import classes from "./Projects.module.scss";
+
 const {
   C_DELIVERY_KEY,
   C_GRAPHQL_URL,
@@ -21,11 +20,8 @@ const {
 export default function Project({ project }) {
   const projectDetail = project.componentListCollection.items[1];
   return (
-    <div className="anchor" id="top">
-      <Nav />
-      {/* <ComponentHeroBanner contentModule={componentHeroBanner} /> */}
+    <div className={classes.oProjects}>
       <ComponentProjectDetail contentModule={projectDetail} />
-      <pre>{JSON.stringify(project, null, 2)}</pre>
     </div>
   );
 }

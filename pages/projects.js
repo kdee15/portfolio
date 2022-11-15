@@ -1,8 +1,4 @@
-import { createClient } from "contentful";
-import ComponentHeroBanner from "../components/blocks/componentHeroBanner/ComponentHeroBanner";
 import Nav from "../components/molecules/nav/Nav";
-import Link from "next/Link";
-import ComponentBodyCopy from "../components/organisms/componentBodyCopy/ComponentBodyCopy";
 const { C_SPACE_ID, C_DELIVERY_KEY } = require("../helpers/contentful-config");
 
 export async function getStaticProps() {
@@ -49,12 +45,10 @@ export default function Home({ projects }) {
     <div className="anchor" id="top">
       <Nav />
       <h1>Hello</h1>
-      {projects.map((project) => (
-        <div key={project.slug}>
+      {projects.map((project, index) => (
+        <div key={index}>
           {project.title}
-          <Link href={`/projects/${project.slug}`}>
-            <a>{project.title}</a>
-          </Link>
+          <a href={`/projects/${project.slug}`}>{project.title}</a>
         </div>
       ))}
     </div>
