@@ -2,6 +2,7 @@ import Image from "next/image";
 import React from "react";
 import { isMobile } from "react-device-detect";
 import { useState, useEffect } from "react";
+import ComponentCarouselImage from "../../molecules/componentCarouselImage/ComponentCarouselImage";
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import classes from "./ComponentProjectDetail.module.scss";
@@ -14,7 +15,8 @@ function ComponentProjectDetail({ contentModule }) {
   }, []);
 
   const data = contentModule;
-  // console.log("contentModule", contentModule);
+  console.log("contentModule", contentModule);
+  const carouselDeskScreens = contentModule.screenshotsDesktopCollection.items;
   const { title, coverImageDesk, coverImageTablet, coverImageMobile } =
     contentModule;
 
@@ -22,31 +24,12 @@ function ComponentProjectDetail({ contentModule }) {
     dots: true,
     infinite: true,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 1,
     slidesToScroll: 1,
-    adaptiveHeight: true,
-    responsive: [
-      {
-        breakpoint: 991,
-        settings: {
-          slidesToShow: 2,
-          slidesToScroll: 1,
-          infinite: true,
-        },
-      },
-      {
-        breakpoint: 767,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-        },
-      },
-    ],
   };
 
   return (
-    <div className={classes.oProjectPage}>
+    <>
       <nav className={classes.oNav}>
         <span
           className={`${classes.demoTab} ${classes.details} ${classes.show} ${classes.on}`}
@@ -241,10 +224,9 @@ function ComponentProjectDetail({ contentModule }) {
         >
           <div className={classes.oWrapper}>
             <Slider {...settingsDesk}>
-              <div className={`slideCard`}>
-                <h5 className={`aTitle`}>{data.column1Title}</h5>
-                <p className={`aText a-fnt-16f`}>{data.column1Text}</p>
-              </div>
+              {carouselDeskScreens.map((item, index) => (
+                <ComponentCarouselImage item={item} key={index} />
+              ))}
             </Slider>
           </div>
         </div>
@@ -264,7 +246,7 @@ function ComponentProjectDetail({ contentModule }) {
         </div> 
         */}
       </main>
-    </div>
+    </>
   );
 }
 
