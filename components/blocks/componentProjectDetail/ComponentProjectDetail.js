@@ -202,20 +202,22 @@ function ComponentProjectDetail({ contentModule }) {
           </a>
         </Link>
 
-        <span className={`${classes.demoTab} ${classes.back} ${classes.show}`}>
-          <figure className={classes.mIcon}>
-            <svg
-              className={`${classes.aIcon} ${classes.prev}`}
-              viewBox="0 0 100 100"
-            >
-              <path
-                className={`${classes.aIconElement}`}
-                d="M70.19,3,25.41,47.8a3.1,3.1,0,0,0,0,4.4L70.19,97a3.11,3.11,0,0,0,4.4-4.41L32,50,74.59,7.42A3.11,3.11,0,0,0,70.19,3Z"
-              />
-            </svg>
-          </figure>
-          <p className={classes.aIconText}>BACK</p>
-        </span>
+        <Link href={`/projects`}>
+          <a className={`${classes.demoTab} ${classes.back} ${classes.show}`}>
+            <figure className={classes.mIcon}>
+              <svg
+                className={`${classes.aIcon} ${classes.prev}`}
+                viewBox="0 0 100 100"
+              >
+                <path
+                  className={`${classes.aIconElement}`}
+                  d="M70.19,3,25.41,47.8a3.1,3.1,0,0,0,0,4.4L70.19,97a3.11,3.11,0,0,0,4.4-4.41L32,50,74.59,7.42A3.11,3.11,0,0,0,70.19,3Z"
+                />
+              </svg>
+            </figure>
+            <p className={classes.aIconText}>BACK</p>
+          </a>
+        </Link>
       </nav>
 
       <main className={classes.oProjects}>
