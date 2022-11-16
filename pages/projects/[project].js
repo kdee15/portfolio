@@ -20,7 +20,7 @@ const {
 export default function Project({ project }) {
   const projectDetail = project.componentListCollection.items[1];
   return (
-    <div className={classes.oProjects}>
+    <div className={classes.oProjectPage}>
       <ComponentProjectDetail contentModule={projectDetail} />
     </div>
   );
