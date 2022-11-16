@@ -158,6 +158,7 @@
     vertical-align: middle;
     .aIcon {
       height: 20px;
+      vertical-align: middle;
       &.cog {
         width: 20px;
       }
@@ -181,7 +182,7 @@
     }
   }
   .aIconText {
-    margin: 0;
+    margin: 0 0 0 8px;
     padding: 0;
     display: none;
     line-height: normal;

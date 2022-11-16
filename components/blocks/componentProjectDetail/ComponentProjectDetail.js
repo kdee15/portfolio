@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import React from "react";
 import { isMobile } from "react-device-detect";
 import { useState, useEffect } from "react";
@@ -184,23 +185,23 @@ function ComponentProjectDetail({ contentModule }) {
           </span>
         ) : null}
 
-        <span
-          className={`${classes.demoTab} ${classes.home} ${classes.show}`}
-          href="<?php echo get_home_url(); ?>"
-        >
-          <figure className={classes.mIcon}>
-            <svg
-              className={`${classes.aIcon} ${classes.caret}`}
-              viewBox="0 0 100 100"
-            >
-              <path
-                className={classes.aIconElement}
-                d="M97,70.19,52.2,25.41a3.1,3.1,0,0,0-4.4,0L3,70.19a3.11,3.11,0,0,0,4.41,4.4L50,32,92.58,74.59A3.11,3.11,0,1,0,97,70.19Z"
-              />
-            </svg>
-          </figure>
-          <p className={classes.aIconText}>Home</p>
-        </span>
+        <Link href={`/home`}>
+          <a className={`${classes.demoTab} ${classes.home} ${classes.show}`}>
+            <figure className={classes.mIcon}>
+              <svg
+                className={`${classes.aIcon} ${classes.caret}`}
+                viewBox="0 0 100 100"
+              >
+                <path
+                  className={classes.aIconElement}
+                  d="M97,70.19,52.2,25.41a3.1,3.1,0,0,0-4.4,0L3,70.19a3.11,3.11,0,0,0,4.41,4.4L50,32,92.58,74.59A3.11,3.11,0,1,0,97,70.19Z"
+                />
+              </svg>
+            </figure>
+            <p className={classes.aIconText}>Home</p>
+          </a>
+        </Link>
+
         <span className={`${classes.demoTab} ${classes.back} ${classes.show}`}>
           <figure className={classes.mIcon}>
             <svg
