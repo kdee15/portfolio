@@ -201,6 +201,12 @@
       color: $kd-blue;
     }
   }
+  &.on {
+    background-color: pink;
+  }
+  &.off {
+    background-color: yellow;
+  }
 }
 
 .oProjectCover {
