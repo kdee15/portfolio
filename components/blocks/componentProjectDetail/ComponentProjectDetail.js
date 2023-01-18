@@ -48,17 +48,18 @@ function ComponentProjectDetail({ contentModule }) {
   console.log("ProjectDEtails", contentModule);
   const { imageDesktop, imageTablet, imageMobile } =
     contentModule.componentListCollection.items[0];
-  const { title, coverImageTablet } =
-    contentModule.componentListCollection.items[1];
-  const coverImageDesk =
-    contentModule.componentListCollection.items[2].coverImage;
+  const { title } = contentModule.componentListCollection.items[1];
+
   const carouselDeskScreens =
-    contentModule.componentListCollection.items[2].carouselImagesCollection
+    contentModule.componentListCollection.items[2]?.carouselImagesCollection
       .items;
-  const coverImageMobile =
-    contentModule.componentListCollection.items[3].coverImage;
+
   const carouselMobiScreens =
-    contentModule.componentListCollection.items[3].carouselImagesCollection
+    contentModule.componentListCollection.items[3]?.carouselImagesCollection
+      .items;
+
+  const carouselTabletScreens =
+    contentModule.componentListCollection.items[4]?.carouselImagesCollection
       .items;
 
   const settingsDesk = {
@@ -234,7 +235,10 @@ function ComponentProjectDetail({ contentModule }) {
 
       <main className={classes.oProjects}>
         <section className={classes.oProjectContent}>
-          <ComponentResponsiveImages contentModule={contentModule} />
+          <ComponentResponsiveImages
+            contentModule={contentModule}
+            isOn={isOn}
+          />
         </section>
 
         <div
@@ -265,46 +269,51 @@ function ComponentProjectDetail({ contentModule }) {
             <p className={`${classes.aDetail}`}>END DATE</p>
           </div>
         </div>
-
-        <div
-          className={`${classes.oTab} ${classes.slideContent} ${
-            classes.demoDesk
-          } ${showDesks ? classes.on : classes.off}`}
-        >
-          <div className={classes.oWrapper}>
-            <Slider {...settingsDesk}>
-              {carouselDeskScreens.map((item, index) => (
-                <ComponentCarouselImage item={item} key={index} />
-              ))}
-            </Slider>
+        {imageDesktop ? (
+          <div
+            className={`${classes.oTab} ${classes.slideContent} ${
+              classes.demoDesk
+            } ${showDesks ? classes.on : classes.off}`}
+          >
+            <div className={classes.oWrapper}>
+              <Slider {...settingsDesk}>
+                {carouselDeskScreens.map((item, index) => (
+                  <ComponentCarouselImage item={item} key={index} />
+                ))}
+              </Slider>
+            </div>
           </div>
-        </div>
-        <div
-          className={`${classes.oTab} ${classes.slideContent} ${
-            classes.demoMobile
-          } ${showMobi ? classes.on : classes.off}`}
-        >
-          <div className={classes.oWrapper}>
-            <Slider {...settingsMobi}>
-              {carouselMobiScreens.map((item, index) => (
-                <ComponentCarouselImage item={item} key={index} />
-              ))}
-            </Slider>
+        ) : null}
+        {imageTablet ? (
+          <div
+            className={`${classes.oTab} ${classes.slideContent} ${
+              classes.demoTablet
+            } ${showTablet ? classes.on : classes.off}`}
+          >
+            <div className={classes.oWrapper}>
+              <Slider {...settingsTablet}>
+                {carouselTabletScreens.map((item, index) => (
+                  <ComponentCarouselImage item={item} key={index} />
+                ))}
+              </Slider>
+            </div>
           </div>
-        </div>
-        <div
-          className={`${classes.oTab} ${classes.slideContent} ${
-            classes.demoTablet
-          } ${showTablet ? classes.on : classes.off}`}
-        >
-          <div className={classes.oWrapper}>
-            {/* <Slider {...settingsTablet}>
-              {carouselDeskScreens.map((item, index) => (
-                <ComponentCarouselImage item={item} key={index} />
-              ))}
-            </Slider> */}
+        ) : null}
+        {imageMobile ? (
+          <div
+            className={`${classes.oTab} ${classes.slideContent} ${
+              classes.demoMobile
+            } ${showMobi ? classes.on : classes.off}`}
+          >
+            <div className={classes.oWrapper}>
+              <Slider {...settingsMobi}>
+                {carouselMobiScreens.map((item, index) => (
+                  <ComponentCarouselImage item={item} key={index} />
+                ))}
+              </Slider>
+            </div>
           </div>
-        </div>
+        ) : null}
       </main>
     </>
   );

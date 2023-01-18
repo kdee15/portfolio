@@ -1,9 +1,3 @@
-/**
- * GRAPHQL Query to retrieve About Us content from Strapi
- *
- * @type {DocumentNode}
- * @param {_locale}
- */
 export const PROJECT_CONTENT = `
   query GetProject($slug: String!) {
     projectPageCollection(where: { slug: $slug }, limit: 1) {
@@ -42,12 +36,6 @@ export const PROJECT_CONTENT = `
             }
             ... on ComponentImageCarousel {
               title
-              coverImage {
-                title
-                url
-                width
-                height
-              }
               carouselImagesCollection {
                 items {
                 title
