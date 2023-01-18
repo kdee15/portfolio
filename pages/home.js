@@ -1,6 +1,5 @@
 import { createClient } from "contentful";
 import ComponentHeroBanner from "../components/blocks/componentHeroBanner/ComponentHeroBanner";
-import DynamicBlocks from "../components/blocks/DynamicBlocks";
 import ComponentBodyCopy from "../components/organisms/componentBodyCopy/ComponentBodyCopy";
 const { C_SPACE_ID, C_DELIVERY_KEY } = require("../helpers/contentful-config");
 
