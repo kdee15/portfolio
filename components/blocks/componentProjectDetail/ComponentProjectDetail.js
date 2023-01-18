@@ -7,6 +7,7 @@ import ComponentCarouselImage from "../../molecules/componentCarouselImage/Compo
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import classes from "./ComponentProjectDetail.module.scss";
+import ComponentResponsiveImages from "../../organisms/componentResponsiveImages/ComponentResponsiveImages";
 
 function ComponentProjectDetail({ contentModule }) {
   const [mobileView, setMobileView] = useState();
@@ -44,10 +45,22 @@ function ComponentProjectDetail({ contentModule }) {
   };
 
   const data = contentModule;
-  console.log("contentModule", contentModule);
-  const carouselDeskScreens = contentModule.screenshotsDesktopCollection.items;
-  const { title, coverImageDesk, coverImageTablet, coverImageMobile } =
-    contentModule;
+  console.log("ProjectDEtails", contentModule);
+  const { imageDesktop, imageTablet, imageMobile } =
+    contentModule.componentListCollection.items[0];
+  const { title } = contentModule.componentListCollection.items[1];
+
+  const carouselDeskScreens =
+    contentModule.componentListCollection.items[2]?.carouselImagesCollection
+      .items;
+
+  const carouselMobiScreens =
+    contentModule.componentListCollection.items[3]?.carouselImagesCollection
+      .items;
+
+  const carouselTabletScreens =
+    contentModule.componentListCollection.items[4]?.carouselImagesCollection
+      .items;
 
   const settingsDesk = {
     dots: true,
@@ -105,7 +118,7 @@ function ComponentProjectDetail({ contentModule }) {
           <p className={classes.aIconText}>Project Details</p>
         </span>
 
-        {coverImageDesk ? (
+        {imageDesktop ? (
           <span
             onClick={handleDesk}
             className={`${classes.demoTab} ${classes.demoDesk} ${
@@ -131,7 +144,7 @@ function ComponentProjectDetail({ contentModule }) {
             <p className={classes.aIconText}>Desktop Screens</p>
           </span>
         ) : null}
-        {coverImageTablet ? (
+        {imageTablet ? (
           <span
             onClick={handleTablet}
             className={`${classes.demoTab} ${classes.demoTab}  ${
@@ -158,7 +171,7 @@ function ComponentProjectDetail({ contentModule }) {
             <p className={classes.aIconText}>Tablet Screens</p>
           </span>
         ) : null}
-        {coverImageMobile ? (
+        {imageMobile ? (
           <span
             onClick={handleMobi}
             className={`${classes.demoTab} ${classes.demoMob} ${classes.show} ${
@@ -222,37 +235,10 @@ function ComponentProjectDetail({ contentModule }) {
 
       <main className={classes.oProjects}>
         <section className={classes.oProjectContent}>
-          {mobileView ? (
-            <figure className={`${classes.oProjectCover}`}>
-              <Image
-                className={`${classes.aImage} ${classes.aCoverMob} a-responsive-image`}
-                src={coverImageMobile?.url}
-                alt="mobile cover"
-                width={coverImageMobile.width}
-                height={coverImageMobile.height}
-                aria-hidden="true"
-                layout="responsive"
-                priority="true"
-              />
-            </figure>
-          ) : (
-            <figure
-              className={`${classes.oProjectCover} ${
-                !isOn ? classes.on : classes.off
-              }`}
-            >
-              <Image
-                className={`${classes.aImage} ${classes.aCoverDesk} a-responsive-image`}
-                src={coverImageDesk?.url}
-                alt="desktop cover"
-                width={coverImageDesk.width}
-                height={coverImageDesk.height}
-                aria-hidden="true"
-                layout="responsive"
-                priority="true"
-              />
-            </figure>
-          )}
+          <ComponentResponsiveImages
+            contentModule={contentModule}
+            isOn={isOn}
+          />
         </section>
 
         <div
@@ -283,46 +269,51 @@ function ComponentProjectDetail({ contentModule }) {
             <p className={`${classes.aDetail}`}>END DATE</p>
           </div>
         </div>
-
-        <div
-          className={`${classes.oTab} ${classes.slideContent} ${
-            classes.demoDesk
-          } ${showDesks ? classes.on : classes.off}`}
-        >
-          <div className={classes.oWrapper}>
-            <Slider {...settingsDesk}>
-              {carouselDeskScreens.map((item, index) => (
-                <ComponentCarouselImage item={item} key={index} />
-              ))}
-            </Slider>
+        {imageDesktop ? (
+          <div
+            className={`${classes.oTab} ${classes.slideContent} ${
+              classes.demoDesk
+            } ${showDesks ? classes.on : classes.off}`}
+          >
+            <div className={classes.oWrapper}>
+              <Slider {...settingsDesk}>
+                {carouselDeskScreens.map((item, index) => (
+                  <ComponentCarouselImage item={item} key={index} />
+                ))}
+              </Slider>
+            </div>
           </div>
-        </div>
-        <div
-          className={`${classes.oTab} ${classes.slideContent} ${
-            classes.demoMobile
-          } ${showMobi ? classes.on : classes.off}`}
-        >
-          <div className={classes.oWrapper}>
-            <Slider {...settingsMobi}>
-              {carouselDeskScreens.map((item, index) => (
-                <ComponentCarouselImage item={item} key={index} />
-              ))}
-            </Slider>
+        ) : null}
+        {imageTablet ? (
+          <div
+            className={`${classes.oTab} ${classes.slideContent} ${
+              classes.demoTablet
+            } ${showTablet ? classes.on : classes.off}`}
+          >
+            <div className={classes.oWrapper}>
+              <Slider {...settingsTablet}>
+                {carouselTabletScreens.map((item, index) => (
+                  <ComponentCarouselImage item={item} key={index} />
+                ))}
+              </Slider>
+            </div>
           </div>
-        </div>
-        <div
-          className={`${classes.oTab} ${classes.slideContent} ${
-            classes.demoTablet
-          } ${showTablet ? classes.on : classes.off}`}
-        >
-          <div className={classes.oWrapper}>
-            <Slider {...settingsTablet}>
-              {carouselDeskScreens.map((item, index) => (
-                <ComponentCarouselImage item={item} key={index} />
-              ))}
-            </Slider>
+        ) : null}
+        {imageMobile ? (
+          <div
+            className={`${classes.oTab} ${classes.slideContent} ${
+              classes.demoMobile
+            } ${showMobi ? classes.on : classes.off}`}
+          >
+            <div className={classes.oWrapper}>
+              <Slider {...settingsMobi}>
+                {carouselMobiScreens.map((item, index) => (
+                  <ComponentCarouselImage item={item} key={index} />
+                ))}
+              </Slider>
+            </div>
           </div>
-        </div>
+        ) : null}
       </main>
     </>
   );

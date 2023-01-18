@@ -1,29 +1,31 @@
 import React from "react";
-import Hero from "./Hero/Hero";
-import PageHero from "./PageHero/PageHero";
-import RichTextComponent from "./RichTextComponent/RichTextComponent";
-import TextImageComponent from "./TextImageComponent/TextImageComponent";
-import Carousel from "./Carousel/Carousel";
+import ComponentHeroBanner from "../blocks/componentHeroBanner/ComponentHeroBanner";
+import ComponentBodyCopy from "../organisms/componentBodyCopy/ComponentBodyCopy";
 
 function DynamicBlocks(props) {
-  const {contentModule} = props;
-  switch (contentModule.__component) {
-    case 'blocks.hero':
-      return <Hero contentModule={contentModule}/>
-    case 'blocks.page-hero':
-      return <PageHero contentModule={contentModule}/>
-    case 'blocks.rich-text-component':
-      return <RichTextComponent contentModule={contentModule}/>
-    case 'blocks.carousel':
-      return <Carousel contentModule={contentModule}/>
-    case 'blocks.text-image-block':
-      return <TextImageComponent contentModule={contentModule}/>
-    default:
-      return <div><h1>component not found</h1></div>
-  }
+  const { contentModule } = props.props[0].fields.components;
+  console.log("props", props);
+  console.log("comps", props.props[0].fields.components);
+  console.log("contentModule", contentModule);
+  // switch (contentModule.page.fields.components) {
+  //   case "blocks.hero":
+  //     return <ComponentHeroBanner contentModule={contentModule} />;
+  //   case "blocks.page-hero":
+  //     return <ComponentBodyCopy contentModule={contentModule} />;
+
+  //   default:
+  //     return (
+  //       <div>
+  //         <h1>component not found</h1>
+  //       </div>
+  //     );
+  // }
   return (
-    <section>contentModule={contentModule.__component}</section>
-  )
+    <section>
+      <h1>hello</h1>
+      {/* contentModule={contentModule.props.props[0].fields.components} */}
+    </section>
+  );
 }
 
 export default DynamicBlocks;

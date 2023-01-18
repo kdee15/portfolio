@@ -1,4 +1,5 @@
 import ComponentProjectDetail from "../../components/blocks/componentProjectDetail/ComponentProjectDetail";
+import ComponentResponsiveImages from "../../components/organisms/componentResponsiveImages/ComponentResponsiveImages";
 import classes from "./Projects.module.scss";
 
 const {
@@ -18,10 +19,11 @@ const {
  */
 
 export default function Project({ project }) {
-  const projectDetail = project.componentListCollection.items[1];
+  console.log("project", project);
   return (
     <div className={classes.oProjectPage}>
-      <ComponentProjectDetail contentModule={projectDetail} />
+      <ComponentResponsiveImages contentModule={project} />
+      <ComponentProjectDetail contentModule={project} />
     </div>
   );
 }
