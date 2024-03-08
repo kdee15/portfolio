@@ -1,0 +1,98 @@
+// COMPONENT [ FOOTER ] ###############################################################################################
+@import "../../../scss/.base/_module-index";
+
+.oFooter {
+  // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
+
+  padding: 120px 0 0;
+  background-color: $grey-02;
+  margin: 80px 0 0;
+  position: relative;
+
+  .oContainerFluid {
+    padding: 0;
+  }
+
+  .aBackgroundImage {
+    @include position(absolute, 0);
+    background-position: center;
+    background-size: cover;
+    opacity: 0.6;
+    background-attachment: fixed;
+  }
+  .aFooterLogo {
+    max-width: 200px;
+    margin: 0 auto;
+    .aLogo {
+      path {
+        fill: white;
+      }
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+  .mCopy {
+    margin-top: 50px;
+    text-align: center;
+    h2 {
+      margin-bottom: 30px;
+    }
+    p {
+      margin-bottom: 15px;
+    }
+  }
+
+  .oFooterList {
+    list-style-type: none;
+    margin: 80px 0 0;
+    padding: 100px 0;
+    width: 100%;
+    text-align: center;
+    background-color: rgba($grey-02, 0.9);
+    .mLink {
+      .aText {
+        display: inline-block;
+        vertical-align: middle;
+        margin-right: 15px;
+      }
+      .aImage {
+        display: inline-block;
+        max-width: 200px;
+        height: auto;
+        vertical-align: middle;
+      }
+    }
+  }
+
+  // A. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
+
+  @media ($md-dn) {
+  }
+
+  // B. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
+
+  @media ($md-up) {
+  }
+
+  // C. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
+
+  @media ($lg-up) {
+  }
+
+  // D. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // E. MIN-WIDTH: 1200px +++++++++++++++++++++++++++++++++
+
+  @media ($xl-up) {
+  }
+
+  // E. END +++++++++++++++++++++++++++++++++++++++++++++++
+}
+
+// END OF FILE ########################################################################################################

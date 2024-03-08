@@ -1,0 +1,104 @@
+// COMPONENT [ HERO BLOCK ] ###########################################################################################
+@import "../../../scss/.base/_module-index";
+
+.oHeroBlock {
+  // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
+
+  &.bannerHome {
+    min-height: 100vh;
+
+    .introImage {
+      @include position(absolute, 0);
+      background-size: cover;
+      background-attachment: fixed;
+      z-index: -1;
+    }
+
+    .oContentBlock {
+      display: flex;
+      align-items: left;
+      height: 100vh;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 20vw;
+    }
+
+    .mLogo {
+      position: relative;
+      z-index: 2;
+      width: 80%;
+      max-width: 400px;
+      margin: 0 auto 50px 0;
+      .aLogo {
+        path {
+          fill: $kd-blue;
+        }
+      }
+    }
+  }
+
+  &.bannerPage {
+    min-height: 30vh;
+    position: relative;
+    .introImage {
+      @include position(absolute, 0);
+      background-size: cover;
+      z-index: -1;
+    }
+
+    .oContentBlock {
+      display: flex;
+      align-items: center;
+      height: 30vh;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .mLogo {
+      width: 80%;
+      max-width: 400px;
+      margin: 0 auto;
+    }
+  }
+
+  .aTitle {
+    position: relative;
+    z-index: 3;
+  }
+  .aSubTitle {
+    position: relative;
+    z-index: 1;
+  }
+
+  // A. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
+
+  @media ($md-dn) {
+  }
+
+  // B. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
+
+  @media ($md-up) {
+  }
+
+  // C. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
+
+  @media ($lg-up) {
+  }
+
+  // D. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // E. MIN-WIDTH: 1200px +++++++++++++++++++++++++++++++++
+
+  @media ($xl-up) {
+  }
+
+  // E. END +++++++++++++++++++++++++++++++++++++++++++++++
+}
+
+// END OF FILE ########################################################################################################

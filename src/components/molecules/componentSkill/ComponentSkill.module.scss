@@ -1,0 +1,84 @@
+// COMPONENT [ TEXT IMAGE BLOCK ] #####################################################################################
+
+@import "../../../scss/.base/_module-index";
+
+.mSkill {
+  // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
+
+  $skill-color: #e2e2e2;
+
+  .aBall {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    aspect-ratio: 1;
+    background-color: #fefefe;
+    position: relative;
+    border-radius: 50%;
+    &:after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      inset: 0;
+    }
+    &.ball_1 {
+      &:after {
+        background: transparent;
+      }
+    }
+    &.ball_2 {
+      &:after {
+        background: conic-gradient($skill-color calc(50 * 1%), #0000 0);
+      }
+    }
+    &.ball_3 {
+      &:after {
+        background: conic-gradient($skill-color calc(75 * 1%), #0000 0);
+      }
+    }
+    &.ball_4 {
+      &:after {
+        background: conic-gradient($skill-color calc(100 * 1%), #0000 0);
+      }
+    }
+  }
+
+  p {
+    text-align: center;
+    padding: 0;
+    margin: 5px 0 0;
+  }
+
+  // A. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
+
+  @media ($md-dn) {
+  }
+
+  // B. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
+
+  @media ($md-up) {
+  }
+
+  // C. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
+
+  @media ($md-up) {
+  }
+
+  // D. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // E. MIN-WIDTH: 1200px +++++++++++++++++++++++++++++++++
+
+  @media ($lg-up) {
+  }
+
+  // E. END +++++++++++++++++++++++++++++++++++++++++++++++
+}
+
+// END OF FILE ########################################################################################################
