@@ -1,0 +1,121 @@
+// COMPONENT [ HERO BLOCK ] ###########################################################################################
+@import "../../../scss/.base/_module-index";
+
+.oProjectBlock {
+  // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
+
+  padding: 100px 0;
+  .aBlockTitle {
+    text-align: center;
+    width: 100%;
+    margin-bottom: 50px;
+  }
+  .blockWrapper {
+    @include aspect-ratio(100%, 56.5%);
+    position: relative;
+    margin: 30px auto 150px;
+  }
+
+  .mVideo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+
+  .mCtaBlock {
+    text-align: center;
+    display: block;
+    width: 100%;
+    margin: 50px auto 0;
+  }
+
+  .oCard {
+    margin-bottom: 40px;
+    &:nth-child(even) {
+      margin-top: 100px;
+    }
+    &:nth-child(odd):not(:first-child) {
+      margin-top: -100px;
+    }
+    .oProjectCard {
+      cursor: pointer;
+      position: relative;
+      overflow: hidden;
+      background-color: black;
+      &:hover {
+        .mImage {
+          transform: scale(1.05);
+          transition: 0.3s;
+          opacity: 0.1;
+        }
+        .mBody {
+          height: 50%;
+          transition: 0.3s;
+        }
+      }
+      .mImage {
+        aspect-ratio: 16/9;
+        background-position: center;
+        background-size: cover;
+        z-index: 1;
+        transition: 0.6s;
+      }
+      .mBody {
+        position: absolute;
+        z-index: 10;
+        width: 100%;
+        bottom: 0;
+        height: 25%;
+        background-color: rgba(0, 0, 0, 0.8);
+        padding: 20px;
+        transition: 0.3s;
+        .mCardTitle {
+          color: white;
+        }
+      }
+    }
+  }
+
+  // A. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
+
+  @media ($md-dn) {
+  }
+
+  // B. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
+
+  @media ($md-up) {
+    .oContentBlock {
+      .mImage {
+        max-width: 300px;
+        margin: 0 auto;
+      }
+      .aImage {
+        margin: 20px auto;
+      }
+    }
+  }
+
+  // C. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
+
+  @media ($lg-up) {
+  }
+
+  // D. END +++++++++++++++++++++++++++++++++++++++++++++++
+
+  // E. MIN-WIDTH: 1200px +++++++++++++++++++++++++++++++++
+
+  @media ($xl-up) {
+  }
+
+  // E. END +++++++++++++++++++++++++++++++++++++++++++++++
+}
+
+// END OF FILE ########################################################################################################
