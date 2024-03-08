@@ -14,21 +14,18 @@ function ComponentProjectList({ contentModule }) {
   useEffect(() => {
     gsap.registerPlugin(ScrollTrigger);
     ref.current.forEach((el) => {
-      gsap.fromTo(
-        el,
-        { autoAlpha: 0 },
-        {
-          autoAlpha: 1,
-          left: 0,
-          duration: 0.5,
-          scrollTrigger: {
-            trigger: el,
-            start: "top center",
-            scrub: true,
-            stagger: 0.2,
-          },
-        }
-      );
+      gsap.to(el, {
+        autoAlpha: 1,
+        left: 0,
+        duration: 0.5,
+        scrollTrigger: {
+          trigger: el,
+          start: "top bottom",
+          end: "bottom +=80%",
+          scrub: true,
+          stagger: 0.2,
+        },
+      });
     });
   }, []);
 
