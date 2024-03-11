@@ -33,6 +33,12 @@ export default function ComponentTwoColumnImageCopy({ contentModule }) {
     <section className={classes.oComponentTwoColumnImageCopy}>
       <div className={`${classes.oContainer} container`}>
         <div className={`${classes.oRow} row`}>
+          <div className={`${classes.oColText} col-12 col-md-6`}>
+            <h2 ref={refTitle}>{title}</h2>
+            <div className={classes.aText} ref={refCopy}>
+              {documentToReactComponents(copy)}
+            </div>
+          </div>
           <figure
             className={`${classes.oColImage} col-12 col-md-6`}
             ref={refImage}
@@ -47,12 +53,6 @@ export default function ComponentTwoColumnImageCopy({ contentModule }) {
               priority="true"
             />
           </figure>
-          <div className={`${classes.oColText} col-12 col-md-6`}>
-            <h2 ref={refTitle}>{title}</h2>
-            <div className={classes.aText} ref={refCopy}>
-              {documentToReactComponents(copy)}
-            </div>
-          </div>
         </div>
       </div>
     </section>

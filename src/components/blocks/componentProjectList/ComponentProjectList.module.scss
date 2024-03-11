@@ -33,12 +33,7 @@
 
   .oCard {
     margin-bottom: 40px;
-    &:nth-child(even) {
-      margin-top: 100px;
-    }
-    &:nth-child(odd):not(:first-child) {
-      margin-top: -100px;
-    }
+
     .oProjectCard {
       cursor: pointer;
       position: relative;
@@ -69,7 +64,6 @@
         z-index: 10;
         width: 100%;
         bottom: 0;
-        height: 25%;
         background-color: rgba(0, 0, 0, 0.8);
         padding: 20px;
         transition: 0.3s;
@@ -85,6 +79,13 @@
   // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
 
   @media ($md-dn) {
+    .oCard {
+      .mBody {
+        .mCardTitle {
+          margin: 0;
+        }
+      }
+    }
   }
 
   // B. END +++++++++++++++++++++++++++++++++++++++++++++++
@@ -99,6 +100,18 @@
       }
       .aImage {
         margin: 20px auto;
+      }
+    }
+
+    .oCard {
+      &:nth-child(even) {
+        margin-top: 100px;
+      }
+      &:nth-child(odd):not(:first-child) {
+        margin-top: -100px;
+      }
+      .mBody {
+        height: 25%;
       }
     }
   }

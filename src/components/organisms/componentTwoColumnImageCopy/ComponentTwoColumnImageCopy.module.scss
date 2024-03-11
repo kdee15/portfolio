@@ -8,7 +8,6 @@
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
   background-color: #e4e4e4;
-  padding: 120px 0 0;
 
   .oRow {
     align-items: flex-end;
@@ -16,7 +15,7 @@
   }
 
   .oColText {
-    padding: 50px 0;
+    padding: 50px 30px;
     color: #222;
     h2 {
       margin: 0 0 30px;
@@ -35,7 +34,7 @@
   }
 
   .aImage {
-    max-width: 400px;
+    max-width: 300px;
     height: auto;
     margin: auto 0 -4px 0;
   }
@@ -52,6 +51,13 @@
   // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
 
   @media ($md-up) {
+    .oColImage {
+      order: 1;
+    }
+    .oColText {
+      padding: 50px 0;
+      order: 2;
+    }
   }
 
   // C. END +++++++++++++++++++++++++++++++++++++++++++++++
@@ -59,6 +65,11 @@
   // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
 
   @media ($md-up) {
+    padding: 120px 0 0;
+
+    .aImage {
+      max-width: 400px;
+    }
   }
 
   // D. END +++++++++++++++++++++++++++++++++++++++++++++++
