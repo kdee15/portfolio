@@ -16,11 +16,10 @@
 
     .oContentBlock {
       display: flex;
-      align-items: left;
+      align-items: center;
       height: 100vh;
       flex-direction: column;
       justify-content: center;
-      padding-left: 20vw;
     }
 
     .mLogo {
@@ -28,7 +27,7 @@
       z-index: 2;
       width: 80%;
       max-width: 400px;
-      margin: 0 auto 50px 0;
+      margin: 0 auto 50px;
       .aLogo {
         path {
           fill: $kd-blue;
@@ -82,6 +81,19 @@
   // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
 
   @media ($md-up) {
+    &.bannerHome {
+      min-height: 100vh;
+
+      .oContentBlock {
+        padding-left: 20vw;
+        align-items: flex-start;
+      }
+
+      .mLogo {
+        max-width: 400px;
+        margin: 0 auto 50px 0;
+      }
+    }
   }
 
   // C. END +++++++++++++++++++++++++++++++++++++++++++++++
