@@ -12,6 +12,7 @@
 
   .oRow {
     align-items: flex-end;
+    position: relative;
   }
 
   .oColText {
@@ -27,6 +28,10 @@
         margin-bottom: 0;
       }
     }
+  }
+
+  .oColImage {
+    position: relative;
   }
 
   .aImage {

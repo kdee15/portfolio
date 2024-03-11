@@ -55,8 +55,8 @@ function Footer({ contentModule }) {
                   >
                     <Image
                       className={`${classes.aImage}`}
-                      src={`http:${item.fields.image.fields.file.url}`}
-                      alt="mobile cover"
+                      src={`https:${item.fields.image.fields.file.url}`}
+                      alt={item.fields.image.fields.file.title}
                       width={item.fields.image.fields.file.details.image.width}
                       height={
                         item.fields.image.fields.file.details.image.height
