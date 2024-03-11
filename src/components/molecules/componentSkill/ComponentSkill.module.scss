@@ -2,52 +2,42 @@
 
 @import "../../../scss/.base/_module-index";
 
-.mSkill {
+.mSkillItem {
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
-  $skill-color: #e2e2e2;
-
-  .aBall {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    aspect-ratio: 1;
-    background-color: #fefefe;
-    position: relative;
-    border-radius: 50%;
-    &:after {
-      content: "";
-      position: absolute;
-      border-radius: 50%;
-      inset: 0;
-    }
-    &.ball_1 {
-      &:after {
-        background: transparent;
-      }
-    }
-    &.ball_2 {
-      &:after {
-        background: conic-gradient($skill-color calc(50 * 1%), #0000 0);
-      }
-    }
-    &.ball_3 {
-      &:after {
-        background: conic-gradient($skill-color calc(75 * 1%), #0000 0);
-      }
-    }
-    &.ball_4 {
-      &:after {
-        background: conic-gradient($skill-color calc(100 * 1%), #0000 0);
-      }
-    }
+  width: 33%;
+  aspect-ratio: 1/1;
+  cursor: pointer;
+  .aSkillText {
+    @include middle-align();
+    color: #fefefe;
+    line-height: 1;
+    text-align: center;
+    text-shadow: 0 0 5px rgba(black, 0.4);
   }
 
-  p {
-    text-align: center;
+  .mSkill {
+    $skill-color: #e2e2e2;
+    transform: rotate(-90deg);
+    @include position(absolute, 5%);
+    margin: 0;
     padding: 0;
-    margin: 5px 0 0;
+    background-color: $skill-color;
+    border-radius: 100%;
+
+    .aSkillSvg {
+      .skillCircle {
+        stroke: #ccc;
+        fill: none;
+        stroke-width: 50;
+      }
+    }
+
+    p {
+      text-align: center;
+      padding: 0;
+      margin: 5px 0 0;
+    }
   }
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
@@ -62,6 +52,7 @@
   // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++
 
   @media ($md-up) {
+    width: 25%;
   }
 
   // C. END +++++++++++++++++++++++++++++++++++++++++++++++
@@ -76,6 +67,7 @@
   // E. MIN-WIDTH: 1200px +++++++++++++++++++++++++++++++++
 
   @media ($lg-up) {
+    width: 16.66%;
   }
 
   // E. END +++++++++++++++++++++++++++++++++++++++++++++++

@@ -4,16 +4,13 @@
 .oSkillsBlock {
   // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
 
-  .oSkillsRow {
-    margin-top: 20px;
-    margin-bottom: 80px;
-    gap: 20px;
-  }
+  margin-bottom: 100px;
 
-  .oSkill {
-    display: inline-block;
-    flex: 1 1 200px;
-    max-width: 145px;
+  .mSkillsList {
+    margin: 0 0 50px;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
   }
 
   // A. END +++++++++++++++++++++++++++++++++++++++++++++++
