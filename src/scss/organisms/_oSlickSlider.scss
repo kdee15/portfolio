@@ -9,6 +9,7 @@
   overflow: hidden;
   .slick-track {
     display: flex !important;
+    margin: 0 auto;
   }
   .slick-arrow {
     @include vertical-align(absolute);
@@ -17,13 +18,16 @@
     font-size: 0px;
     background-color: transparent;
     z-index: 10;
+    border: 0;
     &.slick-prev {
       left: 0;
       right: 50%;
+      cursor: url(/images/icons/icon--prev.png), auto;
     }
     &.slick-next {
       right: 0;
       left: 50%;
+      cursor: url(/images/icons/icon--next.png), auto;
     }
   }
   .slick-dots {
@@ -82,6 +86,28 @@
       @include center-align();
       bottom: 20px;
     }
+  }
+}
+
+.oWrapperMobi {
+  .slick-slider {
+    .slick-track {
+      // width: 100% !important;
+    }
+  }
+  .slick-slide {
+    padding: 0 15px;
+  }
+  .aCarouselImage {
+    background-size: contain;
+    background-repeat: no-repeat;
+  }
+}
+
+.oWrapperDesk {
+  .aCarouselImage {
+    background-size: contain;
+    background-repeat: no-repeat;
   }
 }
 

@@ -4,7 +4,7 @@ import classes from "./ComponentCarouselImage.module.scss";
 function ComponentCarouselImage({ item }) {
   return (
     <figure
-      className={classes.aCarouselImage}
+      className={`${classes.aCarouselImage} aCarouselImage`}
       style={{
         backgroundImage: `url(${item.url})`,
       }}

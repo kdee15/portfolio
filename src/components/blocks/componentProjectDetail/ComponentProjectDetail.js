@@ -69,11 +69,37 @@ function ComponentProjectDetail({ contentModule }) {
     slidesToScroll: 1,
   };
   const settingsMobi = {
-    dots: true,
     infinite: true,
-    speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    arrows: true,
+    speed: 500,
+    responsive: [
+      {
+        breakpoint: 1200,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          arrows: true,
+        },
+      },
+      {
+        breakpoint: 992,
+        settings: {
+          slidesToShow: 4,
+          slidesToScroll: 1,
+          arrows: true,
+        },
+      },
+      {
+        breakpoint: 768,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+          arrows: false,
+        },
+      },
+    ],
   };
   const settingsTablet = {
     dots: true,
@@ -276,7 +302,7 @@ function ComponentProjectDetail({ contentModule }) {
               classes.demoDesk
             } ${showDesks ? classes.on : classes.off}`}
           >
-            <div className={classes.oWrapper}>
+            <div className={`${classes.oWrapper} oWrapperDesk`}>
               <Slider {...settingsDesk}>
                 {carouselDeskScreens.map((item, index) => (
                   <ComponentCarouselImage item={item} key={index} />
@@ -291,7 +317,7 @@ function ComponentProjectDetail({ contentModule }) {
               classes.demoTablet
             } ${showTablet ? classes.on : classes.off}`}
           >
-            <div className={classes.oWrapper}>
+            <div className={`${classes.oWrapper} oWrapperTab`}>
               <Slider {...settingsTablet}>
                 {carouselTabletScreens.map((item, index) => (
                   <ComponentCarouselImage item={item} key={index} />
@@ -306,7 +332,7 @@ function ComponentProjectDetail({ contentModule }) {
               classes.demoMobile
             } ${showMobi ? classes.on : classes.off}`}
           >
-            <div className={classes.oWrapper}>
+            <div className={`${classes.oWrapper} oWrapperMobi`}>
               <Slider {...settingsMobi}>
                 {carouselMobiScreens.map((item, index) => (
                   <ComponentCarouselImage item={item} key={index} />

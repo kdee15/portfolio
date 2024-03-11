@@ -31,6 +31,7 @@
 
   .oColImage {
     position: relative;
+    padding: 0;
   }
 
   .aImage {
@@ -53,6 +54,7 @@
   @media ($md-up) {
     .oColImage {
       order: 1;
+      padding: 0 15px;
     }
     .oColText {
       padding: 50px 0;
