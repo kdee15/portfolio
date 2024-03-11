@@ -45,6 +45,7 @@
       overflow: hidden;
       background-color: black;
       opacity: 0;
+      transform: translateY(20%);
       &:hover {
         .mImage {
           transform: scale(1.05);

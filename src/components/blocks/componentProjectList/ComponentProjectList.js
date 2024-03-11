@@ -1,9 +1,9 @@
-'use client';
-import React, { useEffect, useState, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
-import Link from 'next/link';
-import classes from './ComponentProjectList.module.scss';
+"use client";
+import React, { useEffect, useState, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import Link from "next/link";
+import classes from "./ComponentProjectList.module.scss";
 
 function ComponentProjectList({ contentModule }) {
   const { title, projectList } = contentModule;
@@ -17,11 +17,12 @@ function ComponentProjectList({ contentModule }) {
       gsap.to(el, {
         autoAlpha: 1,
         left: 0,
+        y: "0",
         duration: 0.5,
         scrollTrigger: {
           trigger: el,
-          start: 'top bottom',
-          end: 'bottom +=80%',
+          start: "top bottom",
+          end: "bottom +=80%",
           scrub: true,
           stagger: 0.6,
         },
