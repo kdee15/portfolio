@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { gsap } from "gsap";
-import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
-import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import Image from "next/image";
-import classes from "./ComponentTwoColumnImageCopy.module.scss";
+import React, { useEffect, useRef, useState } from 'react';
+import { gsap } from 'gsap';
+import { ScrollTrigger } from 'gsap/dist/ScrollTrigger';
+import { documentToReactComponents } from '@contentful/rich-text-react-renderer';
+import Image from 'next/image';
+import classes from './ComponentTwoColumnImageCopy.module.scss';
 
 export default function ComponentTwoColumnImageCopy({ contentModule }) {
   const refImage = useRef(null);
@@ -18,15 +18,15 @@ export default function ComponentTwoColumnImageCopy({ contentModule }) {
       scrollTrigger: {
         trigger: document.documentElement,
         scrub: true,
-        start: "top",
-        end: "35%",
+        start: 'top bottom',
+        end: 'bottom bottom',
       },
     });
 
     timeline
-      .from(refImage.current, { opacity: "0" }, 0)
-      .from(refTitle.current, { x: "-10%" }, 0)
-      .from(refCopy.current, { x: "-5%", opacity: "0" }, 0);
+      .from(refImage.current, { opacity: '0' }, 0)
+      .from(refTitle.current, { x: '-10%' }, 0)
+      .from(refCopy.current, { x: '-5%', opacity: '0' }, 0);
   }, []);
 
   return (
