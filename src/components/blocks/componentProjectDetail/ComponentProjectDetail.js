@@ -70,7 +70,7 @@ function ComponentProjectDetail({ contentModule }) {
   };
   const settingsMobi = {
     infinite: true,
-    slidesToShow: 6,
+    slidesToShow: 5,
     slidesToScroll: 1,
     arrows: true,
     speed: 500,
@@ -78,7 +78,7 @@ function ComponentProjectDetail({ contentModule }) {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 6,
+          slidesToShow: 5,
           slidesToScroll: 1,
           arrows: true,
         },
