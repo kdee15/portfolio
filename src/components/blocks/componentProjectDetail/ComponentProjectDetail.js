@@ -1,11 +1,10 @@
-import Image from "next/image";
 import Link from "next/link";
 import React from "react";
 import { isMobile } from "react-device-detect";
 import { useState, useEffect } from "react";
 import ComponentCarouselImage from "../../molecules/componentCarouselImage/ComponentCarouselImage";
 import Slider from "react-slick";
-// import "slick-carousel/slick/slick.css";
+import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
 import classes from "./ComponentProjectDetail.module.scss";
 import ComponentResponsiveImages from "../../organisms/componentResponsiveImages/ComponentResponsiveImages";
 
@@ -47,7 +46,8 @@ function ComponentProjectDetail({ contentModule }) {
   const data = contentModule;
   const { imageDesktop, imageTablet, imageMobile } =
     contentModule.componentListCollection.items[0];
-  const { title } = contentModule.componentListCollection.items[1];
+  const { title, dateStart, dateEnd, copy, excerpt } =
+    contentModule.componentListCollection.items[1];
 
   const carouselDeskScreens =
     contentModule.componentListCollection.items[2]?.carouselImagesCollection
@@ -70,7 +70,7 @@ function ComponentProjectDetail({ contentModule }) {
   };
   const settingsMobi = {
     infinite: true,
-    slidesToShow: 4,
+    slidesToShow: 6,
     slidesToScroll: 1,
     arrows: true,
     speed: 500,
@@ -78,7 +78,7 @@ function ComponentProjectDetail({ contentModule }) {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 6,
           slidesToScroll: 1,
           arrows: true,
         },
@@ -278,7 +278,7 @@ function ComponentProjectDetail({ contentModule }) {
             // style="background-color:<?php the_field('color_1') ?>;"
           >
             <h4 className={`${classes.aTitle} fnt16`}>Start date</h4>
-            <p className={`${classes.aDetail}`}>START DATE</p>
+            <p className={`${classes.aDetail}`}>{dateStart}</p>
           </div>
           <div className={`${classes.mDetail} ${classes.projectInfo}`}>
             <h3 className={`${classes.aTitle}`}>{title}</h3>
@@ -286,14 +286,17 @@ function ComponentProjectDetail({ contentModule }) {
             <h4 className={`${classes.aTitle}`}>Nuts &amp; Bolts</h4>
             <p className={`${classes.aDetail}`}>TECH</p>
             <h4 className={`${classes.aTitle}`}>The stuff I did ...</h4>
-            <p className={`${classes.aDetail}`}>MY ROLE</p>
+            <div
+              className={`${classes.aDetail}`}
+              dangerouslySetInnerHTML={{ __html: copy }}
+            ></div>
           </div>
           <div
             className={`${classes.mDetail} ${classes.date} ${classes.dateEnd}`}
             // style="background-color:<?php the_field('color_1') ?>;"
           >
             <h4 className={`${classes.aTitle} fnt16`}>End date</h4>
-            <p className={`${classes.aDetail}`}>END DATE</p>
+            <p className={`${classes.aDetail}`}>{dateEnd}</p>
           </div>
         </div>
         {imageDesktop ? (
