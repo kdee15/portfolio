@@ -22,12 +22,12 @@
     &.slick-prev {
       left: 0;
       right: 50%;
-      cursor: url(/images/icons/icon--prev.png), auto;
+      cursor: url(/images/icons/icon--prev.png) 25 25, auto;
     }
     &.slick-next {
       right: 0;
       left: 50%;
-      cursor: url(/images/icons/icon--next.png), auto;
+      cursor: url(/images/icons/icon--next.png) 25 25, auto;
     }
   }
   .slick-dots {
