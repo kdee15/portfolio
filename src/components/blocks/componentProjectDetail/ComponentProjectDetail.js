@@ -2,11 +2,12 @@ import Link from "next/link";
 import React from "react";
 import { isMobile } from "react-device-detect";
 import { useState, useEffect } from "react";
-import ComponentCarouselImage from "../../molecules/componentCarouselImage/ComponentCarouselImage";
 import Slider from "react-slick";
+import { carouselSettings } from "../../../helpers/data/projectCarousels";
+import ComponentCarouselImage from "../../molecules/componentCarouselImage/ComponentCarouselImage";
 import { documentToReactComponents } from "@contentful/rich-text-react-renderer";
-import classes from "./ComponentProjectDetail.module.scss";
 import ComponentResponsiveImages from "../../organisms/componentResponsiveImages/ComponentResponsiveImages";
+import classes from "./ComponentProjectDetail.module.scss";
 
 function ComponentProjectDetail({ contentModule }) {
   const [mobileView, setMobileView] = useState();
@@ -43,10 +44,10 @@ function ComponentProjectDetail({ contentModule }) {
     setTablet();
   };
 
-  const data = contentModule;
   const { imageDesktop, imageTablet, imageMobile } =
     contentModule.componentListCollection.items[0];
-  const { title, dateStart, dateEnd, copy, excerpt } =
+
+  const { title, dateStart, dateEnd, copy, techNotes, myRole } =
     contentModule.componentListCollection.items[1];
 
   const carouselDeskScreens =
@@ -60,54 +61,6 @@ function ComponentProjectDetail({ contentModule }) {
   const carouselTabletScreens =
     contentModule.componentListCollection.items[4]?.carouselImagesCollection
       .items;
-
-  const settingsDesk = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-  };
-  const settingsMobi = {
-    infinite: true,
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    arrows: true,
-    speed: 500,
-    responsive: [
-      {
-        breakpoint: 1200,
-        settings: {
-          slidesToShow: 5,
-          slidesToScroll: 1,
-          arrows: true,
-        },
-      },
-      {
-        breakpoint: 992,
-        settings: {
-          slidesToShow: 4,
-          slidesToScroll: 1,
-          arrows: true,
-        },
-      },
-      {
-        breakpoint: 768,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          arrows: false,
-        },
-      },
-    ],
-  };
-  const settingsTablet = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 1,
-  };
 
   return (
     <>
@@ -282,14 +235,17 @@ function ComponentProjectDetail({ contentModule }) {
           </div>
           <div className={`${classes.mDetail} ${classes.projectInfo}`}>
             <h3 className={`${classes.aTitle}`}>{title}</h3>
-            <p className={`${classes.aDetail}`}>MY CONTENT</p>
+            <div className={`${classes.aDetail}`}>
+              {documentToReactComponents(copy?.json)}
+            </div>
             <h4 className={`${classes.aTitle}`}>Nuts &amp; Bolts</h4>
-            <p className={`${classes.aDetail}`}>TECH</p>
+            <div className={`${classes.aDetail}`}>
+              {documentToReactComponents(techNotes?.json)}
+            </div>
             <h4 className={`${classes.aTitle}`}>The stuff I did ...</h4>
-            <div
-              className={`${classes.aDetail}`}
-              dangerouslySetInnerHTML={{ __html: copy }}
-            ></div>
+            <div className={`${classes.aDetail}`}>
+              {documentToReactComponents(myRole?.json)}
+            </div>
           </div>
           <div
             className={`${classes.mDetail} ${classes.date} ${classes.dateEnd}`}
@@ -306,7 +262,7 @@ function ComponentProjectDetail({ contentModule }) {
             } ${showDesks ? classes.on : classes.off}`}
           >
             <div className={`${classes.oWrapper} oWrapperDesk`}>
-              <Slider {...settingsDesk}>
+              <Slider {...carouselSettings.settingsDesk}>
                 {carouselDeskScreens.map((item, index) => (
                   <ComponentCarouselImage item={item} key={index} />
                 ))}
@@ -321,7 +277,7 @@ function ComponentProjectDetail({ contentModule }) {
             } ${showTablet ? classes.on : classes.off}`}
           >
             <div className={`${classes.oWrapper} oWrapperTab`}>
-              <Slider {...settingsTablet}>
+              <Slider {...carouselSettings.settingsTablet}>
                 {carouselTabletScreens.map((item, index) => (
                   <ComponentCarouselImage item={item} key={index} />
                 ))}
@@ -336,7 +292,7 @@ function ComponentProjectDetail({ contentModule }) {
             } ${showMobi ? classes.on : classes.off}`}
           >
             <div className={`${classes.oWrapper} oWrapperMobi`}>
-              <Slider {...settingsMobi}>
+              <Slider {...carouselSettings.settingsMobi}>
                 {carouselMobiScreens.map((item, index) => (
                   <ComponentCarouselImage item={item} key={index} />
                 ))}

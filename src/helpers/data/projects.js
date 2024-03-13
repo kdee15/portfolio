@@ -32,6 +32,15 @@ export const PROJECT_CONTENT = `
               dateEnd
               primaryColor
               secondaryColor
+              copy {
+                json
+              }
+              techNotes {
+                json
+              }
+              myRole {
+                json
+              }
             }
             ... on ComponentImageCarousel {
               title
