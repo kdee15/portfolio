@@ -231,19 +231,19 @@ function ComponentProjectDetail({ contentModule }) {
             // style="background-color:<?php the_field('color_1') ?>;"
           >
             <h4 className={`${classes.aTitle} fnt16`}>Start date</h4>
-            <p className={`${classes.aDetail}`}>{dateStart}</p>
+            <p className={`${classes.aDetail} fnt16`}>{dateStart}</p>
           </div>
           <div className={`${classes.mDetail} ${classes.projectInfo}`}>
             <h3 className={`${classes.aTitle}`}>{title}</h3>
-            <div className={`${classes.aDetail}`}>
+            <div className={`${classes.aDetail} fnt18`}>
               {documentToReactComponents(copy?.json)}
             </div>
             <h4 className={`${classes.aTitle}`}>Nuts &amp; Bolts</h4>
-            <div className={`${classes.aDetail}`}>
+            <div className={`${classes.aDetail} fnt18`}>
               {documentToReactComponents(techNotes?.json)}
             </div>
             <h4 className={`${classes.aTitle}`}>The stuff I did ...</h4>
-            <div className={`${classes.aDetail}`}>
+            <div className={`${classes.aDetail} fnt18`}>
               {documentToReactComponents(myRole?.json)}
             </div>
           </div>
