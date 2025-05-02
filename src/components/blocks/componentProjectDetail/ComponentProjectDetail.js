@@ -11,7 +11,7 @@ import classes from "./ComponentProjectDetail.module.scss";
 
 function ComponentProjectDetail({ contentModule }) {
   const [mobileView, setMobileView] = useState();
-  const [isDetail, setDetail] = useState();
+  const [isDetail, setDetail] = useState(true);
   const [showDesks, setDesks] = useState();
   const [showTablet, setTablet] = useState();
   const [showMobi, setMobi] = useState();
@@ -224,7 +224,7 @@ function ComponentProjectDetail({ contentModule }) {
         <div
           className={`${classes.oTab} ${classes.slideContent} ${
             classes.details
-          } ${!isDetail ? classes.on : classes.off}`}
+          } ${isDetail ? classes.on : classes.off}`}
         >
           <div
             className={`${classes.mDetail} ${classes.date} ${classes.dateStart}`}

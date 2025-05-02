@@ -1,6 +1,8 @@
 import Link from "next/link";
 import ComponentHeroBanner from "../components/blocks/componentHeroBanner/ComponentHeroBanner";
 import classes from "./projects/Projects.module.scss";
+import Footer from "../components/blocks/componentFooter/ComponentFooter";
+import PageFooter from "../components/blocks/componentFooter/ComponentPageFooter";
 const { PROJECT_LIST } = require("../helpers/data/projects");
 const {
   C_GRAPHQL_URL,
@@ -26,17 +28,19 @@ export async function getStaticProps() {
   const { data } = await result.json();
   const projects = data.pageProjectsCollection.items;
   const heroBanner = data.componentHeroBanner;
+  const pageFooter = data.componentFooter;
 
   return {
     props: {
       projects,
       heroBanner,
+      pageFooter,
     },
     revalidate: 1,
   };
 }
 
-export default function Home({ projects, heroBanner }) {
+export default function Home({ projects, heroBanner, pageFooter }) {
   return (
     <div className="anchor" id="top">
       <ComponentHeroBanner contentModule={heroBanner} />
@@ -65,6 +69,7 @@ export default function Home({ projects, heroBanner }) {
           ))}
         </div>
       </div>
+      <PageFooter contentModule={pageFooter} />
     </div>
   );
 }
