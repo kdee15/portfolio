@@ -46,10 +46,10 @@ export const PROJECT_CONTENT = `
               title
               carouselImagesCollection {
                 items {
-                title
-                url
-                width
-                height
+                  title
+                  url
+                  width
+                  height
                 }
               }
             }
@@ -61,19 +61,19 @@ export const PROJECT_CONTENT = `
 `;
 
 export const PROJECT_SLUG = `
-query {
-  pageProjectsCollection {
+  query {
+    pageProjectsCollection {
       items {
         slug
       }
     }
-}
+  }
 `;
 
 export const PROJECT_LIST = `
-query GetHome {
-  pageProjectsCollection {
-    items {
+  query GetHome {
+    pageProjectsCollection {
+      items {
         title
         slug
         ... on PageProjects {
@@ -86,32 +86,61 @@ query GetHome {
             height
           }
         }
+      }
+    }
 
+    componentHeroBanner(id: "7tk892R0nobdbnD73KY5SU") {
+      title
+      subtitle
+      homepageBanner
+      logo {
+        title
+        url
+        width
+        height
+      }
+      backgroundImage {
+        title
+        url
+        width
+        height
+      }
+      backgroundImageMobile {
+        title
+        url
+        width
+        height
+      }
+    }
+
+    componentFooter(id: "6twxYAWjYUCNkyQbUs4UGE") {
+      title
+      copy {
+        json
+      }
+      menusCollection(limit: 1) {
+        items {
+          title
+          linkListCollection {
+            items {
+              label
+              url
+              image {
+                title
+                url
+                width
+                height
+              }
+            }
+          }
+        }
+      }
+      backgroundImage {
+        title
+        url
+        width
+        height
+      }
     }
   }
-
-  componentHeroBanner (id:"7tk892R0nobdbnD73KY5SU") {
-    title
-    subtitle
-    homepageBanner
-    logo {
-      title
-      url
-      width
-      height
-    }
-    backgroundImage {
-      title
-      url
-      width
-      height
-    }
-    backgroundImageMobile {
-      title
-      url
-      width
-      height
-    }
-  }
-}
 `;
