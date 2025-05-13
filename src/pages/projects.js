@@ -1,8 +1,8 @@
 import Link from "next/link";
 import ComponentHeroBanner from "../components/blocks/componentHeroBanner/ComponentHeroBanner";
 import classes from "./projects/Projects.module.scss";
-import Footer from "../components/blocks/componentFooter/ComponentFooter";
 import PageFooter from "../components/blocks/componentFooter/ComponentPageFooter";
+import Nav from "../components/molecules/nav/Nav";
 const { PROJECT_LIST } = require("../helpers/data/projects");
 const {
   C_GRAPHQL_URL,
@@ -43,6 +43,7 @@ export async function getStaticProps() {
 export default function Home({ projects, heroBanner, pageFooter }) {
   return (
     <div className="anchor" id="top">
+      <Nav />
       <ComponentHeroBanner contentModule={heroBanner} />
       <div className={`${classes.oProjectArea} container-fluid`}>
         <div className="row">

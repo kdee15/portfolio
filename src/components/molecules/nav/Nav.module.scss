@@ -1,72 +1,39 @@
 // MOLECULE [ NAVIGATION ] ############################################################################################
 
-@import "scss/.base/module-index";
+@import "../../../scss/.base/module-index";
 
 // A. GLOBAL STYLES +++++++++++++++++++++++++++++++++++++
-.navMain {
-  .mNavMobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    z-index: 100;
-    transform: translateY(-100%);
-    transition: 0.3s;
-    opacity: 1;
-    &.navOpen {
-      background-color: white;
-      transform: translateY(0%);
-      opacity: 1;
-      transition: 0.3s;
-    }
-    &.navClosed {
-      opacity: 0;
-    }
+.oNav {
+  position: fixed;
+  top: 15px;
+  right: 15px;
+  z-index: 100;
+  .homeSVG {
   }
 }
 
-.mMenu {
+.mLink {
+  position: relative;
   display: block;
-  margin: 0 80px 0 auto;
-  text-align: right;
-  .navLink {
-    display: inline-block;
-    position: relative;
-    &:after {
-      position: absolute;
-      bottom: 10px;
-      width: 0;
-      content: "";
-      height: 2px;
-      background-color: #000;
-      @include center-align();
+  width: 30px;
+  height: 30px;
+  svg {
+    width: 100%;
+    height: 100%;
+    path {
+      filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.3));
       transition: 0.3s;
     }
-    &:hover {
-      &::after {
-        width: 100%;
+  }
+  &:hover {
+    svg {
+      path {
+        fill: #e4e4e4;
+        filter: drop-shadow(0 0 5px rgba(0, 0, 0, 0.6));
         transition: 0.3s;
       }
     }
   }
-}
-
-.aLink {
-  margin: 15px;
-  display: block;
-  color: black;
-  text-decoration: none;
-}
-.burgerWrapper {
-  position: fixed;
-  z-index: 10;
-  top: 10px;
-  right: 10px;
-}
-.mNavBurger {
-  position: absolute;
-  right: 10px;
-  top: 10px;
 }
 
 // A. END +++++++++++++++++++++++++++++++++++++++++++++++
@@ -74,14 +41,6 @@
 // B. GRACEFUL DEGRADATION ++++++++++++++++++++++++++++++
 
 @media ($md-dn) {
-  .mMenu {
-    margin: 50px auto;
-    padding: 0;
-    text-align: center;
-    .navLink {
-      display: block;
-    }
-  }
 }
 
 // B. END +++++++++++++++++++++++++++++++++++++++++++++++
@@ -96,37 +55,10 @@
 // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
 
 @media ($lg-up) {
-  // .navMain {
-  //   @include vertical-align(fixed);
-  //   left: 1%;
-  //   height: 100%;
-  //   z-index: 10;
-  //   .mNav {
-  //     &.navOpen {
-  //       display: block;
-  //     }
-  //     &.navClosed {
-  //       display: block;
-  //     }
-  //     top: 20vh;
-  //     position: relative;
-  //     list-style-type: none;
-  //     padding: 0;
-  //     margin: 0;
-  //     opacity: 0.4;
-  //     transition: 0.3s;
-  //     &:hover {
-  //       opacity: 1;
-  //       transition: 0.3s;
-  //     }
-  //   }
-  // }
-  // .aLink {
-  //   margin: 15px 0;
-  //   display: block;
-  //   color: white;
-  //   text-decoration: none;
-  // }
+  .mLink {
+    width: 50px;
+    height: 50px;
+  }
 }
 
 // D. END +++++++++++++++++++++++++++++++++++++++++++++++
