@@ -11,10 +11,11 @@
   "dependencies": {
     "@contentful/rich-text-html-renderer": "^16.3.0",
     "@contentful/rich-text-react-renderer": "^15.19.0",
+    "@gsap/react": "^2.1.2",
     "@sendgrid/mail": "^8.1.0",
     "@vercel/speed-insights": "^1.0.2",
     "contentful": "^10.6.14",
-    "gsap": "^3.12.4",
+    "gsap": "^3.13.0",
     "locomotive-scroll": "^4.1.4",
     "next": "14.0.4",
     "react": "^18",
@@ -29,10 +30,10 @@
     "sass": "^1.69.5"
   },
   "devDependencies": {
-    "swiper": "^7.2.0",
     "autoprefixer": "^10.4.16",
     "eslint": "^8",
     "eslint-config-next": "14.0.4",
-    "postcss": "^8.4.32"
+    "postcss": "^8.4.32",
+    "swiper": "^7.2.0"
   }
 }

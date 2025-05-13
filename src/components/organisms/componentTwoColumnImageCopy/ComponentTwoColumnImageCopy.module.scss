@@ -66,7 +66,7 @@
 
   // D. MIN-WIDTH: 992px ++++++++++++++++++++++++++++++++++
 
-  @media ($md-up) {
+  @media ($lg-up) {
     padding: 120px 0 0;
 
     .aImage {
@@ -78,7 +78,10 @@
 
   // E. MIN-WIDTH: 1200px +++++++++++++++++++++++++++++++++
 
-  @media ($lg-up) {
+  @media ($xl-up) {
+    .aImage {
+      max-width: 550px;
+    }
   }
 
   // E. END +++++++++++++++++++++++++++++++++++++++++++++++
