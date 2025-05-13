@@ -1,74 +1,41 @@
-import { useState } from "react";
-import BurgerMenu from "../burgerMenu/BurgerMenu";
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
 import classes from "./Nav.module.scss";
+import { HomeSVG } from "../../../assets/html/icon--home";
+import Link from "next/link";
 
 export default function Nav() {
-  const [isActive, setIsActive] = useState();
-  const handleToggle = () => setIsActive(!isActive);
+  gsap.registerPlugin(ScrollTrigger);
+  const navbarRef = useRef(null);
+
+  useEffect(() => {
+    const showNav = gsap
+      .fromTo(
+        navbarRef.current,
+        {
+          opacity: 0,
+        },
+        {
+          opacity: 1,
+          duration: 0.4,
+        }
+      )
+      .progress(1);
+    ScrollTrigger.create({
+      start: "top top",
+      end: "max",
+      onUpdate: (self) => {
+        self.direction === -1 ? showNav.play() : showNav.reverse();
+      },
+    });
+  }, []);
 
   return (
-    <nav className={classes.navMain}>
-      <span onClick={handleToggle} className={classes.burgerWrapper}>
-        <BurgerMenu />
-      </span>
-      <div
-        className={`${classes.mNavMobile} ${
-          isActive ? `${classes.navOpen}` : `${classes.navClosed}`
-        }`}
-      >
-        <div onClick={handleToggle} className={classes.mNavBurger}>
-          <BurgerMenu handleToggle={handleToggle} isActive={isActive} />
-        </div>
-        <ul className={classes.mMenu}>
-          <li className={classes.navLink}>
-            <a className={classes.aLink} href="#top" onClick={handleToggle}>
-              Home
-            </a>
-          </li>
-          <li className={classes.navLink}>
-            <a className={classes.aLink} href="#about" onClick={handleToggle}>
-              About
-            </a>
-          </li>
-          <li className={classes.navLink}>
-            <a className={classes.aLink} href="#tania" onClick={handleToggle}>
-              Tania Molteno
-            </a>
-          </li>
-          <li className={classes.navLink}>
-            <a className={classes.aLink} href="#adele" onClick={handleToggle}>
-              Adele Segers
-            </a>
-          </li>
-          <li className={classes.navLink}>
-            <a
-              className={classes.aLink}
-              href="#management"
-              onClick={handleToggle}
-            >
-              Talent Management Solutions
-            </a>
-          </li>
-          <li className={classes.navLink}>
-            <a
-              className={classes.aLink}
-              href="#consulting"
-              onClick={handleToggle}
-            >
-              Labour Consulting
-            </a>
-          </li>
-          <li className={classes.navLink}>
-            <a
-              className={classes.aLink}
-              href="#training"
-              onClick={handleToggle}
-            >
-              Training
-            </a>
-          </li>
-        </ul>
-      </div>
+    <nav className={classes.oNav} ref={navbarRef}>
+      <Link className={classes.mLink} href={`/`}>
+        <HomeSVG />
+      </Link>
     </nav>
   );
 }
