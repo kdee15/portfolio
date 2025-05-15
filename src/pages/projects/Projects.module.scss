@@ -52,7 +52,7 @@
       bottom: 0;
       height: 25%;
       background-color: rgba(0, 0, 0, 0.8);
-      padding: 20px;
+      padding: 2px 15px;
       transition: 0.3s;
       .mCardTitle {
         color: white;
@@ -76,6 +76,14 @@
 // C. MIN-WIDTH: 768px ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
 
 @media ($md-up) {
+  .oCard {
+    .oProjectCard {
+      .mBody {
+        padding: 20px;
+        height: 33%;
+      }
+    }
+  }
 }
 
 // C. END +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
